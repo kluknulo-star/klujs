@@ -11,56 +11,22 @@
 <div class="box">
     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, assumenda dicta dolore dolorem ea est explicabo hic incidunt magni maxime neque quo, totam? Ab accusantium aut ea id nesciunt quis!
 </div>
+<div>
+    <button class="btn" onclick="sayHello()">
+        Click me
+    </button>
+</div>
 </body>
 </html>
 <style>
 
 </style>
 <script>
-    var someString = 'String'
 
-    let someString2 = new String('string2')
-    let someNum= 100
-    let someBoolean = true
-    let someNull = null
-    let someNaN = NaN
-    let someUndefined = undefined
+    let $box = document.querySelector('.box')
 
-    let someArray = ['sdfds', 45454, true]
-
-    let someObj = {
-        'name' : 'Kirill',
-        'second_name': 'Kilyakov',
-        'age': 22,
+    function sayHello(){
+        $box.remove()
     }
 
-    function someFunc() {
-        return 'some string from function'
-    }
-
-    if (!someBoolean) {
-        console.log('hello')
-    } else {
-        console.log('not hello')
-    }
-
-    let someArr = ['Ivan', 'Elena', 'Ekaterina']
-
-    // someArr.forEach(function(item, index){
-    //     console.log(item, index);
-    // })
-
-    for (let string of someArr) {
-        console.log(string);
-    }
-
-    for (let someObjKey in someObj) {
-        console.log(someObjKey, someObj[someObjKey]);
-    }
-
-    Object.entries(someObj).forEach(function (item) {
-        console.log(item);
-    });
-
-    console.log(someString2);
 </script>
