@@ -8,7 +8,9 @@
     <title>JAVASCRIPT</title>
 </head>
 <body>
-
+<div class="box">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, assumenda dicta dolore dolorem ea est explicabo hic incidunt magni maxime neque quo, totam? Ab accusantium aut ea id nesciunt quis!
+</div>
 </body>
 </html>
 <style>
@@ -17,7 +19,7 @@
 <script>
     var someString = 'String'
 
-    let someString2 = 'string2'
+    let someString2 = new String('string2')
     let someNum= 100
     let someBoolean = true
     let someNull = null
@@ -25,26 +27,40 @@
     let someUndefined = undefined
 
     let someArray = ['sdfds', 45454, true]
-    console.log(someArray);
 
     let someObj = {
         'name' : 'Kirill',
         'second_name': 'Kilyakov',
         'age': 22,
-        someArray : someArray,
     }
-
-    console.log(someObj);
 
     function someFunc() {
         return 'some string from function'
     }
 
-    console.log(someFunc());
-
-    let newFuncInVariable = function (){
-
+    if (!someBoolean) {
+        console.log('hello')
+    } else {
+        console.log('not hello')
     }
 
-    console.log(newFuncInVariable());
+    let someArr = ['Ivan', 'Elena', 'Ekaterina']
+
+    // someArr.forEach(function(item, index){
+    //     console.log(item, index);
+    // })
+
+    for (let string of someArr) {
+        console.log(string);
+    }
+
+    for (let someObjKey in someObj) {
+        console.log(someObjKey, someObj[someObjKey]);
+    }
+
+    Object.entries(someObj).forEach(function (item) {
+        console.log(item);
+    });
+
+    console.log(someString2);
 </script>
