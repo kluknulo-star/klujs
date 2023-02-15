@@ -3,7 +3,9 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center mb-5">
-        <example-component></example-component>
+        <post-component>
+
+        </post-component>
     </div>
     <div class="row justify-content-center">
         <div class="col-md-8">
