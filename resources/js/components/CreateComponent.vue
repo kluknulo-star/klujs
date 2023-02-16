@@ -13,10 +13,12 @@
             <input type="text" class="form-control" v-model="job" id="jobInput" required>
         </div>
         <button class="btn btn-primary" @click.prevent="addPerson">Отправить</button>
+        <SomeComponent></SomeComponent>
     </div>
 </template>
 
 <script>
+import SomeComponent from "./SomeComponent.vue";
 export default {
     name: "CreateComponent",
 
@@ -29,6 +31,8 @@ export default {
     },
 
     mounted() {
+        // console.log(this.index.indexLog() + 'from CreateComponent');
+        console.log(this.$parent.$refs.index.indexLog() + 'from CreateComponent');
     },
 
     methods: {
@@ -44,6 +48,10 @@ export default {
         }
 
     },
+
+    components:{
+        SomeComponent
+    }
 }
 </script>
 

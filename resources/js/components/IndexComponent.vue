@@ -52,6 +52,7 @@ export default {
 
     mounted() {
         this.getPeople()
+        console.log(this.$parent.parentLog());
     },
 
     methods: {
@@ -91,8 +92,11 @@ export default {
                     console.log(response.data)
                     this.getPeople()
                 })
-        }
+        },
 
+        indexLog() {
+            return 'this is index component';
+        },
     },
 }
 </script>
