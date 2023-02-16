@@ -1,5 +1,5 @@
 <template>
-    <div class="w-25">
+    <div class="w-25 mb-3">
         <div class="mb-3">
             <label for="nameInput" class="form-label">Имя</label>
             <input type="text" class="form-control" v-model="name" id="nameInput" aria-describedby="emailHelp" required>
