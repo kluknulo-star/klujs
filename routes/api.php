@@ -21,5 +21,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::prefix('people')->group(function () {
     Route::get('/', App\Http\Controllers\Person\IndexController::class)->name('person.index');
     Route::post('/', App\Http\Controllers\Person\StoreController::class)->name('person.store');
+    Route::patch('/{person}', App\Http\Controllers\Person\UpdateController::class)->where(['person' => '[0-9]+'])->name('person.update');
 
 });
