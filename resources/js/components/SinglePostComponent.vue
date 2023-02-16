@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="mb-3">
         Single post component
     </div>
 </template>
