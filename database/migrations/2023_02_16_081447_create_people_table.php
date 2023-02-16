@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->unsignedBigInteger('age');
             $table->string('job');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
