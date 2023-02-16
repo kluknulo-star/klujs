@@ -17,7 +17,7 @@
                     <td>{{ person.name }}</td>
                     <td>{{ person.age }}</td>
                     <td>{{ person.job }}</td>
-                    <td><a href="#" @click.prevent="choicePersonEdit(person.id)" class="btn btn-warning">Edit</a></td>
+                    <td><a href="#" @click.prevent="choicePersonEdit(person.id, person.name, person.age, person.job)" class="btn btn-warning">Edit</a></td>
                 </tr>
                 <tr :class="isEditing(person.id) ? '' : 'd-none'">
                     <th scope="row">{{ person.id }}</th>
@@ -59,8 +59,10 @@ export default {
                 })
         },
 
-        choicePersonEdit(id) {
-            console.log(id)
+        choicePersonEdit(id, name, age, job) {
+            this.editedName = name
+            this.editedAge = age
+            this.editedJob = job
             this.editPersonId = id
         },
 
