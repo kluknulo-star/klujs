@@ -2,7 +2,7 @@
     <div>
         <SinglePostComponent></SinglePostComponent>
         <div>Name: {{ name }}</div>
-        <div>Voice: {{ sayHello() }}</div>
+        <div>Job: {{ vasyaJob }}</div>
         <button @click="sayHello"> Hello </button>
         <button @click="sayHello"> Hi </button>
     </div>
@@ -16,7 +16,7 @@ export default {
 
     data() {
         return {
-            name: 'Vasya',
+            name: 'Вася',
             age: 20,
             married: false,
 
@@ -29,6 +29,12 @@ export default {
         },
 
 
+    },
+
+    computed: {
+        vasyaJob() {
+            return this.name + ' работает в булочной'
+        },
     },
 
     components: {
