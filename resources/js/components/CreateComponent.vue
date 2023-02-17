@@ -13,7 +13,7 @@
             <input type="text" class="form-control" v-model="job" id="jobInput" required>
         </div>
         <button class="btn btn-primary" @click.prevent="addPerson">Отправить</button>
-        <SomeComponent></SomeComponent>
+        <SomeComponent :obj="obj"></SomeComponent>
     </div>
 </template>
 
@@ -27,11 +27,16 @@ export default {
             name: null,
             age: null,
             job: null,
+
+            obj: {
+                'color': 'yellow',
+                'number': 40,
+                'isPublished': true,
+            }
         }
     },
 
     mounted() {
-        // console.log(this.index.indexLog() + 'from CreateComponent');
         console.log(this.$parent.$refs.index.indexLog() + 'from CreateComponent');
     },
 
