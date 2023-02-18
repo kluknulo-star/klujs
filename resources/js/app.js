@@ -6,11 +6,15 @@
 
 import './bootstrap';
 import { createApp } from 'vue'
-import PostComponent from './components/PostComponent.vue'
+import router from './router'
+import Root from "./components/Root.vue";
 
 const app = createApp({
+    components: {
+        Root
+    }
 });
 
-app.component('post-component', PostComponent);
-
+// app.component();
+app.use(router)
 app.mount('#app');
