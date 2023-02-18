@@ -1,8 +1,8 @@
 <template>
-    <div>
-        <div>Color: {{obj.color}}</div>
-        <div>Number: {{obj.number > 10 ? 'more 10' : obj.number}}</div>
-        <div>Status: {{obj.isPublished==='true' ? 'Published' : 'Is not published'}}</div>
+    <div class="mb-3">
+        <div><b>Color:</b> {{obj.color}}</div>
+        <div><b>Number:</b> {{obj.number > 10 ? 'more 10' : obj.number}}</div>
+        <div><b>Status:</b> {{obj.isPublished==='true' ? 'Published' : 'Is not published'}}</div>
     </div>
 </template>
 
@@ -18,7 +18,6 @@ export default {
     ],
 
     mounted() {
-        console.log(this.$parent.$parent.parentLog() + 'from SomeComponent')
     },
 
     methods: {

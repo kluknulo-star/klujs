@@ -13,22 +13,8 @@
             </thead>
             <tbody>
             <template v-for="person in people">
-                <tr :class="isEditing(person.id) ? 'd-none' : ''">
-<!--                <tr>-->
-                    <th scope="row">{{ person.id }}</th>
-                    <td>{{ person.name }}</td>
-                    <td>{{ person.age }}</td>
-                    <td>{{ person.job }}</td>
-                    <td><a href="#" @click.prevent="choicePersonEdit(person.id, person.name, person.age, person.job)" class="btn btn-warning">Edit</a></td>
-                    <td><a href="#" @click.prevent="deletePerson(person.id)" class="btn btn-danger">Delete</a></td>
-                </tr>
-                <tr :class="isEditing(person.id) ? '' : 'd-none'">
-                    <th scope="row">{{ person.id }}</th>
-                    <td><input type="text" class="form-control" v-model="editedName"></td>
-                    <td><input type="number" class="form-control" v-model="editedAge"></td>
-                    <td><input type="text" class="form-control" v-model="editedJob"></td>
-                    <td><a href="#" @click.prevent="updatePerson(person.id)" class="btn btn-success">Update</a></td>
-                </tr>
+                <ShowComponent :person="person"></ShowComponent>
+                <EditComponent :person="person" :ref="`edit_${person.id}`"></EditComponent>
             </template>
             </tbody>
         </table>
@@ -36,6 +22,9 @@
 </template>
 
 <script>
+import EditComponent from "./EditComponent.vue";
+import ShowComponent from "./ShowComponent.vue";
+
 export default {
     name: "IndexComponent",
 
@@ -43,16 +32,11 @@ export default {
         return {
             people: null,
             editPersonId: null,
-
-            editedName: null,
-            editedAge: null,
-            editedJob: null,
         }
     },
 
     mounted() {
         this.getPeople()
-        console.log(this.$parent.parentLog());
     },
 
     methods: {
@@ -63,41 +47,16 @@ export default {
                 })
         },
 
-        choicePersonEdit(id, name, age, job) {
-            this.editedName = name
-            this.editedAge = age
-            this.editedJob = job
-            this.editPersonId = id
-        },
-
-        isEditing(id){
+        isEditing(id) {
             return this.editPersonId === id
         },
 
-        updatePerson(id) {
-            let updatePerson = {name: this.editedName, age: this.editedAge,job: this.editedJob}
-
-            axios.patch(`/api/people/${id}`, updatePerson)
-                .then(response =>{
-                    console.log(response.data)
-                    this.editPersonId = null
-                    this.getPeople()
-                })
-        },
-
-        deletePerson(id)
-        {
-            axios.delete(`/api/people/${id}`)
-                .then(response =>{
-                    console.log(response.data)
-                    this.getPeople()
-                })
-        },
-
-        indexLog() {
-            return 'this is index component';
-        },
     },
+
+    components: {
+        EditComponent,
+        ShowComponent
+    }
 }
 </script>
 

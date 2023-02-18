@@ -1,5 +1,5 @@
 <template>
-    <div class="w-25 mb-3">
+    <div class="w-25 mb-2">
         <div class="mb-3">
             <label for="nameInput" class="form-label">Имя</label>
             <input type="text" class="form-control" v-model="name" id="nameInput" aria-describedby="emailHelp" required>
@@ -13,8 +13,8 @@
             <input type="text" class="form-control" v-model="job" id="jobInput" required>
         </div>
         <button class="btn btn-primary" @click.prevent="addPerson">Отправить</button>
-        <SomeComponent :obj="obj"></SomeComponent>
     </div>
+    <SomeComponent :obj="obj"></SomeComponent>
 </template>
 
 <script>
@@ -37,7 +37,7 @@ export default {
     },
 
     mounted() {
-        console.log(this.$parent.$refs.index.indexLog() + 'from CreateComponent');
+
     },
 
     methods: {
@@ -47,7 +47,7 @@ export default {
                     this.name = null
                     this.age = null
                     this.job = null
-
+                    this.$parent.$refs.index.getPeople()
                     console.log(response)
                 })
         }

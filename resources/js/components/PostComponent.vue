@@ -17,14 +17,9 @@ export default {
 
 
     mounted() {
-        this.$refs.index.indexLog()
-        console.log(this.$refs.index.editedName);
     },
 
     methods:{
-        parentLog(){
-            return 'this is parent log';
-        }
     },
 
     components: {
