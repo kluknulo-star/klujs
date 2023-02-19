@@ -7,6 +7,7 @@
 import './bootstrap';
 import { createApp } from 'vue'
 import router from './router'
+import store from "./store";
 import Root from "./components/Root.vue";
 
 const app = createApp({
@@ -15,6 +16,6 @@ const app = createApp({
     }
 });
 
-// app.component();
 app.use(router)
+app.use(store)
 app.mount('#app');

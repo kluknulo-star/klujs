@@ -17,25 +17,14 @@
 export default {
     name: "Show",
 
-    data() {
-        return {
-            person: null,
-        }
-    },
-
     mounted() {
-        this.getPerson()
+        this.$store.dispatch('getPerson', this.$route.params.id)
     },
 
-    methods: {
-        getPerson() {
-            axios.get('/api/people/' + this.$route.params.id)
-                .then(response => {
-                    this.person = response.data
-
-                    console.log(response.data)
-                })
-        },
+    computed: {
+       person() {
+           return this.$store.getters.person
+       }
     },
 
 }
