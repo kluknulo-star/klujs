@@ -15,7 +15,7 @@
             <label for="jobInput" class="form-label" >Работа</label>
             <input type="text" class="form-control" id="jobInput" v-model="person.job" required>
         </div>
-        <button :disabled="isDisabledSend" class="btn btn-primary" @click.prevent="updatePerson">Отправить</button>
+        <button :disabled="isDisabledSend" class="btn btn-primary" @click.prevent="$store.dispatch('updatePerson', person)">Отправить</button>
     </div>
 </template>
 
@@ -25,42 +25,17 @@ import router from "../../router";
 export default {
     name: "Edit",
 
-    data() {
-        return {
-            person: null,
-        }
-
-    },
-
     mounted() {
-        console.log(this.$route.params);
-        this.getPerson()
+        this.$store.dispatch('getPerson', this.$route.params.id)
     },
 
-    methods:
-        {
-            getPerson() {
-                axios.get(`/api/people/${this.$route.params.id}`)
-                    .then(response => {
-                        this.person = response.data.data
-                        console.log(response.data.data)
-                    })
-            },
-
-            updatePerson() {
-                let updatePerson = {name: this.person.name, age: this.person.age, job: this.person.job}
-                axios.patch(`/api/people/${this.$route.params.id}`, updatePerson)
-                    .then(response => {
-                        console.log(response);
-                        this.$router.push({name: 'person.show' , params: { id: this.$route.params.id }})
-                    })
-            },
-        },
     computed: {
+        person() {
+            return this.$store.getters.person
+        },
         isDisabledSend() {
             return !(this.person.name && this.person.age && this.person.job)
-            // return false
-        }
+        },
     }
 }
 </script>

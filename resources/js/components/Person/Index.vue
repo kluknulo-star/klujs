@@ -13,12 +13,12 @@
         <tbody>
         <template v-for="person in people">
             <tr>
+                <th scope="row">{{ person.id }}</th>
                 <td>
                     <router-link :to="{name: 'person.show', params: {id: person.id}}" class="text-info">
                        {{ person.name }}
                     </router-link>
                 </td>
-                <th scope="row">{{ person.id }}</th>
                 <td>{{ person.age }}</td>
                 <td>{{ person.job }}</td>
                 <td>
@@ -27,7 +27,7 @@
                     </router-link>
                 </td>
                 <td>
-                    <a href="#" @click.prevent="deletePerson(person.id)" class="btn btn-outline-danger">
+                    <a href="#" @click.prevent="$store.dispatch('deletePerson', person.id)" class="btn btn-outline-danger">
                         Удалить
                     </a>
                 </td>
@@ -41,34 +41,15 @@
 export default {
     name: "Index",
 
-    data() {
-        return {
-            people: null,
-        }
-    },
-
     mounted() {
-        this.getPeople()
+        this.$store.dispatch('getPeople')
     },
 
-    methods: {
-        getPeople() {
-            axios.get('/api/people')
-                .then(response => {
-                    this.people = response.data.data
-                    console.log(response);
-                })
-        },
-
-        deletePerson(id) {
-            console.log(id);
-            axios.delete(`/api/people/${id}`)
-                .then(response =>{
-                    console.log(response);
-                    this.getPeople()
-                })
+    computed: {
+        people(){
+            return this.$store.getters.people
         }
-    }
+    },
 }
 </script>
 
