@@ -3,11 +3,20 @@
 - CRUD пользователей (на бэке)
 - vue-router (позволяет без перезагрузки менять url в браузере)
  
-## Запуск проекта
+## Установка проекта
 
 ```cp .env.example .env```
 
 ```composer install```
+
+```php artisan migrate```
+
+```npm install```
+
+
+## Запуск проекта
+
+```php artisan serve```
 
 ```npm run dev```
 
