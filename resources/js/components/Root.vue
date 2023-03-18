@@ -10,10 +10,6 @@
         </div>
 
         <router-view></router-view>
-
-        <div class="mt-5">
-            <i>Footer</i>
-        </div>
     </div>
 
 </template>

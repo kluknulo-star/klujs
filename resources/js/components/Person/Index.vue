@@ -1,6 +1,6 @@
 <template>
-    <table class="table table-dark table-striped w-50">
-        <thead>
+    <table class="table rounded rounded-3 overflow-hidden">
+        <thead class="table-dark">
         <tr>
             <th scope="col">#</th>
             <th scope="col">Имя</th>
@@ -15,7 +15,7 @@
             <tr>
                 <th scope="row">{{ person.id }}</th>
                 <td>
-                    <router-link :to="{name: 'person.show', params: {id: person.id}}" class="text-info">
+                    <router-link :to="{name: 'person.show', params: {id: person.id}}" class="text-">
                        {{ person.name }}
                     </router-link>
                 </td>
