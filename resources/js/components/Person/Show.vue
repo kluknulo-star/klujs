@@ -1,7 +1,7 @@
 <template>
     <div>
         <div v-if="person" class="mb-3">
-            <router-link :to="{name: 'person.edit', params: {id: person.id}}" class="btn btn-warning">
+            <router-link :to="{name: 'person.edit', params: {id: person.id}}" class="btn btn-info">
                 Редактировать
             </router-link>
         </div>
